@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { connect, Link, Loading } from 'umi';
+import { Dispatch } from 'redux';
 import './index.less'
+import { LoginState } from '@/pages/Login/model';
 
 const layout = {
   labelCol: {
@@ -17,11 +19,23 @@ const tailLayout = {
     span: 16,
   },
 };
+interface propsType {
+  login: LoginState,
+  loading: Loading,
+  dispatch: Dispatch<any>
+}
+interface LoginType {
+  phone: number,
+  password: string
+}
 
-const Login: FC = () => {
-  const [form] = Form.useForm();
-  const onFinish = values => {
+const Login: FC<propsType> = ({ login, loading, dispatch }) => {
+  const onFinish = async (values: LoginType) => {
     console.log('Success:', values);
+    const res = await dispatch({
+      type: 'login/loginUser',
+      payload: values
+    })
   };
   return (
     <div className="container">
@@ -44,7 +58,7 @@ const Login: FC = () => {
           >
             <Form.Item
               label="用户名"
-              name="username"
+              name="phone"
               rules={[
                 {
                   required: true,
@@ -84,4 +98,7 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default connect(({login, loading}: {
+  login: LoginState,
+  loading: Loading
+}) => ({loading: loading.models.login, login}))(Login);

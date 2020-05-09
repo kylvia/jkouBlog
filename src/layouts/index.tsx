@@ -1,19 +1,26 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Login from '@/pages/Login';
 import { Layout } from 'antd';
+import TopBar from '../components/TopBar';
 const { Header, Footer, Sider, Content } = Layout;
+import SysLyouts from './SysLyouts';
+import { Dispatch } from 'redux';
+import { connect } from 'umi';
 import './index.less'
 
 interface Greeting {
-  children: any,
+  children?: any,
+  dispatch: Dispatch,
   location: {
     pathname: string
   };
 }
-
-const LayoutMain: React.FC<Greeting> = (props) => {
-  if (props.location.pathname === '/login') {
-    return <Login />
+const LayoutMain: React.FC<Greeting> = ({children, location, dispatch}) => {
+  if (location.pathname === '/login') {
+    return <div>{children}</div>
+  }
+  if (location.pathname.toUpperCase().includes('BACKSYSTEM')) {
+    return <SysLyouts children={children} location={location} />
   }
 
   const [visible, setVisible] = useState(false)
@@ -29,12 +36,11 @@ const LayoutMain: React.FC<Greeting> = (props) => {
     <Fragment>
       <Header><TopBar /></Header>
       <Layout>
-        <div className="mainBox">{ props.children }</div>
+        <div className="mainBox">{ children }</div>
       </Layout>
       <Footer>
         <div className="footer">
-          © 2018 Liu Chi | Site words total count: 88.8k
-          个人专属 |Personal's Page — Liu Chi
+          © 2018 kj&nbsp;|&nbsp;个人专属&nbsp;|&nbsp;Personal's Page — 阿娇
         </div>
       </Footer>
     </Fragment>
@@ -42,4 +48,4 @@ const LayoutMain: React.FC<Greeting> = (props) => {
   );
 };
 
-export default LayoutMain;
+export default connect()(LayoutMain);

@@ -1,14 +1,15 @@
 import { AnyAction } from 'redux';
 import { EffectsCommandMap } from 'dva';
 import { getLoginUser } from './service'
-import { Reducer } from '@@/plugin-dva/connect';
+import { Reducer, history  } from 'umi';
+import { message  } from 'antd';
 
 export interface LoginState {
   userInfo: object
 }
 export type Effect = (
   action: AnyAction,
-  effects: EffectsCommandMap & { select: <T>(func: (state: LoginState) => T) => T }
+  effects: EffectsCommandMap & { select: <T>(func: (state: any) => T) => T },
 ) => void
 export interface LoginType {
   namespace: 'login',
@@ -26,13 +27,15 @@ const login = {
     userInfo: {}
   },
   effects: {
-    *loginUser({ paylod }, { put, call }){
-      const result = yield call(getLoginUser, paylod)
+    *loginUser({ payload }, { put, call }){
+      const result = yield call(getLoginUser, payload)
       if(result.status === 200){
-        yield put({
-          type: 'saveLoginUser',
-          payload: result.data
-        })
+        localStorage.setItem('isLogin', true)
+        localStorage.setItem('userInfo', JSON.stringify(result.data))
+        history.push('/home');
+      }else {
+        localStorage.setItem('isLogin', false)
+        message.error(result.msg)
       }
     }
   },

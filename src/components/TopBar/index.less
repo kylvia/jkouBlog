@@ -4,18 +4,34 @@
   line-height: 80px;
   text-align: center;
   .icon{
-    font-size: 20px;
+    margin-right: 10px;
+    font-size: 16px;
   }
   .lMenu{
     width: 100px;
   }
   .rTool{
+    display: flex;
+    justify-content: center;
     width: 200px;
   }
   .cTitle{
     flex: 1;
     font-weight: 800;
     font-size: 32px;
+  }
+  .toolBarItem{
+    flex: 1;
+    & + .toolBarItem{
+      margin-left: 20px;
+    }
+    &:hover{
+      color: #0085a1;
+      cursor: pointer;
+    }
+    .toolBarItemLink{
+      color: inherit;
+    }
   }
 }
 .ant-drawer{
@@ -32,5 +48,43 @@
     font-size: 16px;
     font-weight: 700;
     text-align: center;
+  }
+  .blogInfo{
+    margin-bottom: 50px;
+    .head{
+      width: 130px;
+      height: 130px;
+      margin: auto;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border-radius: 50%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    p{
+      text-align: center;
+    }
+  }
+  .blogInfo1{
+    margin-top: 70px;
+
+    .icon{
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    a{
+      color: inherit;
+      &:hover{
+        color: #0085a1;
+      }
+    }
+  }
+}
+.ant-popover{
+  .qrcode{
+    width: 120px;
+    height: 120px;
   }
 }

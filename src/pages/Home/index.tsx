@@ -26,6 +26,12 @@ const Home: React.FC<Pageprops> = ({ home, commonTag, loading, dispatch }) => {
       }
     })
     dispatch({
+      type: 'home/getUserMess',
+      payload: {
+        username: '阿娇'
+      }
+    })
+    dispatch({
       type: 'commonTag/getTags'
     })
   },[])
@@ -39,6 +45,9 @@ const Home: React.FC<Pageprops> = ({ home, commonTag, loading, dispatch }) => {
   }
   const getTagId = (tags: string[]) => {
     const { tagList } = commonTag
+    if(!tagList.length){
+      return []
+    }
     const vals = tags.map((i: string) => {
       return tagList.filter((j: { labelName: string; }) => j.labelName === i)
     })

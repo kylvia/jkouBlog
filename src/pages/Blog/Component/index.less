@@ -1,0 +1,43 @@
+.editor-toolbar button.active, .editor-toolbar button:hover{
+  background-color: initial;
+  opacity: .8;
+}
+.CodeMirror{
+ background: initial;
+  color: inherit;
+}
+.CodeMirror-cursor{
+  border-left: 1px solid #fff;
+}
+.editor-toolbar.fullscreen{
+  background: inherit;
+  top: 90px;
+  ::before, ::before{
+    height: 0;
+  }
+}
+.editor-preview {
+  background: inherit;
+}
+.CodeMirror-fullscreen, .editor-preview-side{
+  top: 140px;
+  height: calc(~"100% - 253px") !important;
+}
+.editor-statusbar{
+  margin-top: -27px;
+}
+.editor-preview pre{
+  background: inherit;
+}
+//.ant-layout-footer{
+//  position: absolute;
+//  width: 100%;
+//  bottom: 0;
+//}
+.blogTitBox{
+  display: flex;
+  margin-bottom: 10px;
+  .blogTit{
+    flex: 1;
+  }
+}

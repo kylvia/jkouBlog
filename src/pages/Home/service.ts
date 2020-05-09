@@ -6,3 +6,11 @@ export async function myArticles(params: object) {
     params,
   });
 }
+
+export async function getUserMess(params: object) {
+  return request('/getUserMess', {
+    method: 'GET',
+    params,
+  });
+}
+

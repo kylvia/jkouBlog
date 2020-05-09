@@ -34,7 +34,6 @@ const AboutModel: AboutModelType = {
   subscriptions: {
     setup({ dispatch, history }){
       return history.listen(({ pathname }) => {
-        console.log(pathname)
         if(pathname==='/'){
           dispatch({
             type: 'query'

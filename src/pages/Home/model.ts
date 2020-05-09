@@ -1,5 +1,5 @@
 import { Reducer } from 'umi';
-import { myArticles } from './service'
+import { myArticles, getUserMess } from './service'
 import { AnyAction } from 'redux';
 import { EffectsCommandMap } from 'dva';
 import { RowsType } from './data.d'
@@ -26,6 +26,7 @@ export interface HomeModelType {
   effects: {
     query: Effect,
     setPageData: Effect,
+    getUserMess: Effect
   };
   reducers: {
     saveList: Reducer<HomeModelState>,
@@ -48,6 +49,13 @@ const HomeModel: HomeModelType = {
     }
   },
   effects: {
+    *getUserMess({ payload }, { call, put }){
+      console.log(payload)
+      const res = yield call(getUserMess, {...payload})
+      if(res.status === 200){
+        localStorage.setItem('userInfo', JSON.stringify(res.data))
+      }
+    },
     *setPageData({ payload }, { put, select }){
       const params = yield select(state => {
         return state.home.articleListParms
