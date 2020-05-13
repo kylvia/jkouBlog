@@ -47,14 +47,14 @@ const BlogPage: FC<BlogPageType> = ({sysBlog, dispatch}) => {
     {
       title: '操作',
       key: 'action',
-      render: (text, record) => (
+      render: (text: any, record: { id: number; }) => (
         <Fragment>
-          <Link to={{
+          <Link style={{ marginRight: 16 }} to={{
             pathname: '/blog',
             query: {
               id: record.id
             }
-          }}><a style={{ marginRight: 16 }}>编辑</a></Link>
+          }}>编辑</Link>
           <Popconfirm
             okText="确认"
             cancelText="取消"
@@ -66,7 +66,24 @@ const BlogPage: FC<BlogPageType> = ({sysBlog, dispatch}) => {
       ),
     },
   ];
-  return (<Table columns={columns} dataSource={sysBlog.list && sysBlog.list.rows || []} />);
+  const fetchList = (pageData: any) => {
+    dispatch({
+      type: 'sysBlog/setPageData',
+      payload: {
+        pageNum: pageData
+      }
+    })
+  }
+  return (<Table
+    rowKey="id"
+    columns={columns}
+    dataSource={sysBlog.list && sysBlog.list.rows || []}
+    pagination={{
+      onChange: page => fetchList(page),
+      total: sysBlog.list && sysBlog.list.records || 0,
+      pageSize: sysBlog.blogListParms && sysBlog.blogListParms.pageSize || 10,
+    }}
+  />);
 };
 
 export default connect(({sysBlog}: {sysBlog: sysBlogState}) => ({sysBlog}))(BlogPage);

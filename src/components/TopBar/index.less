@@ -1,7 +1,5 @@
 .topBar{
   display: flex;
-  height: 80px;
-  line-height: 80px;
   text-align: center;
   .icon{
     margin-right: 10px;
@@ -19,6 +17,9 @@
     flex: 1;
     font-weight: 800;
     font-size: 32px;
+    .goHome{
+      color: inherit;
+    }
   }
   .toolBarItem{
     flex: 1;
@@ -35,6 +36,10 @@
   }
 }
 .ant-drawer{
+
+  .menuIcon{
+    margin-right: 10px;
+  }
   .ant-drawer-body{
     margin-top: 50px;
   }
@@ -63,7 +68,11 @@
         height: 100%;
       }
     }
+    .username{
+      font-size: 16px;
+    }
     p{
+      font-size: 12px;
       text-align: center;
     }
   }

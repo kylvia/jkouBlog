@@ -19,6 +19,9 @@ const LayoutMain: React.FC<Greeting> = ({children, location, dispatch}) => {
   if (location.pathname === '/login') {
     return <div>{children}</div>
   }
+  if (location.pathname === '/') {
+    return <div>{children}</div>
+  }
   if (location.pathname.toUpperCase().includes('BACKSYSTEM')) {
     return <SysLyouts children={children} location={location} />
   }

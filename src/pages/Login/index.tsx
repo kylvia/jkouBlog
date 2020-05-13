@@ -43,7 +43,7 @@ const Login: FC<propsType> = ({ login, loading, dispatch }) => {
         <div className="top">
           <div className="header">
             <Link to="/">
-              <span className="title">Ant Design</span>
+              <span className="title">登录</span>
             </Link>
           </div>
         </div>

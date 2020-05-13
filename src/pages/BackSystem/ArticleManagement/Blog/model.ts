@@ -65,7 +65,6 @@ const sysBlog: sysBlogType = {
     },
     *getBlogs(_, { call, put, select }){
       const params = yield select(state => {
-        console.log(state.sysBlog.blogListParms)
         return state.sysBlog.blogListParms
       })
       const result =yield call(getBlogs,params)

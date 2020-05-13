@@ -51,7 +51,7 @@ const Tags: FC<pageTagsProps> = ({tag, location, loading, dispatch}) => {
         return <a key={i.id} onClick={() => getTag(i.id, i.labelName)} className="tags" style={{ backgroundColor: colors[index % (colors.length)] }}>{i.labelName}</a>
       })}
     </div>
-    {location.state && location.state.labelId && <Fragment>
+    <Fragment>
       <p className="tagsName"><TagsOutlined />&nbsp;<span className="tagsDes">分类</span>：{tagName}</p>
       <List<Partial<RowsType>>
         itemLayout="vertical"
@@ -76,7 +76,7 @@ const Tags: FC<pageTagsProps> = ({tag, location, loading, dispatch}) => {
           </List.Item>
         )}
       />
-    </Fragment> || ''}
+    </Fragment>
   </div>);
 };
 

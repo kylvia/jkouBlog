@@ -54,7 +54,6 @@ const Blog: FC<BlogPropsType> = ({ dispatch, location, blogModel }) => {
   }
   const sendData = async (e: Partial<BlogValsItem>) => {
     const val = blogRef.current.getVal() || '';
-    console.log('blogRef-->', val)
     const res = await dispatch({
       type: 'blogModel/publishEditor',
       payload: {

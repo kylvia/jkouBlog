@@ -4,14 +4,15 @@ import { Drawer, Popover } from 'antd'
 import './index.less'
 import { history, Link, connect } from 'umi';
 import { QuillPenIcon, ManagementIcon } from '@/components/Icon';
+import { HomeOutlined, BarsOutlined, SmileOutlined } from '@ant-design/icons';
 import head from '@/images/head.jpeg';
 import wx from '@/images/wx.jpg';
 import qq from '@/images/qq.jpg';
 
 const menus = [
-  {path: '/home', name: '首页'},
-  {path: '/tags', name: '分类'},
-  {path: '/about', name: '关于'},
+  {path: '/home', name: '首页', icon: <HomeOutlined className="menuIcon" />},
+  {path: '/tags', name: '分类', icon: <BarsOutlined className="menuIcon" />},
+  {path: '/about', name: '关于', icon: <SmileOutlined className="menuIcon" />},
 ]
 const TopBar:FC = () => {
   const [visible, setVisible] = useState(false)
@@ -44,12 +45,12 @@ const TopBar:FC = () => {
         >
           <div className="blogInfo">
             <div className="head"><img src={head} alt=""/></div>
-            <p>{userInfo.username || ''}</p>
-            <p>{userInfo.intro || ''}</p>
+            <p className="username">{userInfo.username || ''}</p>
+            <p><pre>{userInfo.intro || ''}</pre></p>
             <p></p>
           </div>
           {
-            menus.map(item => <p key={item.path} className="drawerRow"><a className="drawerLink" onClick={() => toLink(item.path)}>{item.name}</a></p>)
+            menus.map(item => <p key={item.path} className="drawerRow"><a className="drawerLink" onClick={() => toLink(item.path)}>{item.icon}{item.name}</a></p>)
           }
           <div className="blogInfo blogInfo1">
             <p><MailOutlined className="icon" />{userInfo.email || ''}</p>
@@ -66,7 +67,7 @@ const TopBar:FC = () => {
         </Drawer>
       </div>
     </div>
-    <div className="cTitle">fhasdfh</div>
+    <div className="cTitle"><Link className="goHome" to="/">阿娇</Link></div>
     {localStorage.getItem('isLogin') && <div className="rTool">
       <div className="toolBarItem"><QuillPenIcon className="icon" /><Link className="toolBarItemLink" to="/blog">写博客</Link></div>
       <div className="toolBarItem"><ManagementIcon className="icon" /><Link className="toolBarItemLink" to="/backSystem">管理系统</Link></div>
