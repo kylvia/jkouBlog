@@ -9,6 +9,7 @@ before_install:
 
 script:
   - umi build
-  - docker build -t jkou_blog .
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - docker push jkou_blog
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t kylvia/jkou_blog:latest .
+  - docker tag kylvia/jkou_blog:latest jiaoa/jkou_blog:latest
+  - docker push jiaoa/jkou_blog:latest
