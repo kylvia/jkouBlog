@@ -9,7 +9,6 @@ before_install:
 
 script:
   - npm run build
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t  kylvia/jkouBlog:latest .
-  - docker tag kylvia/jkouBlog:latest jiaoa/jkouBlog:latest
-  - docker push jiaoa/jkouBlog:latest
+  - docker build -t jkou_blog .
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker push jkou_blog
