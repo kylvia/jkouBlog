@@ -11,4 +11,5 @@ script:
   - umi build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t jkou_blog .
-  - docker push jkou_blog
+  - docker tag jkou_blog jiaoa/jkou_blog:latest
+  - docker push jiaoa/jkou_blog
