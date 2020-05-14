@@ -1,7 +1,7 @@
 FROM nginx
 
+COPY ./dist/ /var/lib/docker/tmp/
+COPY ./index.html /usr/share/nginx/blog/dist/index.html
 
-COPY ./index.html /usr/share/nginx/blog/index.html
 
-
-EXPOSE 80
+EXPOSE 8000
