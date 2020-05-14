@@ -8,7 +8,7 @@ before_install:
   - npm install
 
 script:
-  - npm run build
+  - umi build
   - docker build -t jkou_blog .
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker push jkou_blog
