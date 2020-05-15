@@ -1,3 +1,3 @@
 FROM nginx
 COPY ./dist/ /usr/share/nginx/blog/
-EXPOSE 8000
+EXPOSE 8080
