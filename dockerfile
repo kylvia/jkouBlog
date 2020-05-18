@@ -1,3 +1,4 @@
 FROM nginx
+label maintainer "joynce"
 COPY ./dist/ /usr/share/nginx/blog/
-EXPOSE 8080
+EXPOSE 8000
