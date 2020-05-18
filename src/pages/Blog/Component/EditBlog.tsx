@@ -35,7 +35,7 @@ const EditBlog: FC<{
   }
   const handleUploadImgOk = () => {
     setUploadImgVisible(false)
-    setTextValue(textValue + `![${imageUrl}](${imageUrl})`)
+    setTextValue(textValue + `![/api/${imageUrl}](/api/${imageUrl})`)
   }
   const handleUploadImgCancel = () => {
     setUploadImgVisible(false)
