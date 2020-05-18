@@ -10,6 +10,6 @@ before_install:
 script:
   - umi build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t jkou_blog .
-  - docker tag jkou_blog jiaoa/jkou_blog:latest
-  - docker push jiaoa/jkou_blog
+  - docker build -t joynce_blog .
+  - docker tag joynce_blog jiaoa/joynce_blog:latest
+  - docker push jiaoa/joynce_blog
