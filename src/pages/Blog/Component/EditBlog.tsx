@@ -10,7 +10,6 @@ const EditBlog: FC<{
   cRef: any,
   defaultVal: aticleDraft
 }> = ({cRef, defaultVal}) => {
-  console.log(defaultVal)
   const [textValue, setTextValue] = useState()
   const [imageUrl, setImageUrl] = useState()
   const [imgLoading, setImgLoading] = useState(false)
@@ -71,8 +70,8 @@ const EditBlog: FC<{
       if(file.response && file.response.success === 1){
         fileList = fileList.map(i => {
           if (i.response) {
-            i.url = i.response.url;
-            setImageUrl(`/api/${i.response.url}`)
+            i.url = `/api${i.response.url}`;
+            setImageUrl(`/api${i.response.url}`)
           }
           return {
             uid: i.uid,
@@ -155,7 +154,7 @@ const EditBlog: FC<{
         beforeUpload={beforeUpload}
         onChange={handleUploadImgChange}
       >
-        {imageUrl ? '' : uploadButton}
+        {imageUrl || uploadList.length ? '' : uploadButton}
       </Upload>
     </Modal>
   </Fragment>);

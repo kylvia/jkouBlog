@@ -57,7 +57,6 @@ const Detail: FC<propsType> = ({ dispatch, commonTag, articleDetail, location })
     return vals
   }
   const getText = (item: string[] = []) => {
-    console.log(item)
     const tagsVal = item && getTagId(item) || [];
     return tagsVal.map((j, index) => {
       if(!j.length) return;
@@ -74,7 +73,6 @@ const Detail: FC<propsType> = ({ dispatch, commonTag, articleDetail, location })
   };
 
   const like = (commentId: string) => {
-    console.log(commentId)
     dispatch({
       type: 'articleDetail/updLikes',
       payload: {
@@ -101,7 +99,6 @@ const Detail: FC<propsType> = ({ dispatch, commonTag, articleDetail, location })
       }
     })
   }
-  console.log(articleDetail.comments)
   return (
     <div className="detailPage">
       <h2 className="title">{articleDetail.detail && articleDetail.detail.title || ''}</h2>

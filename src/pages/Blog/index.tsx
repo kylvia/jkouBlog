@@ -39,7 +39,6 @@ const Blog: FC<BlogPropsType> = ({ dispatch, location, blogModel }) => {
   // 发布
   const handlePublish = (value) => {
     const val = blogRef.current.getVal() || ''
-    console.log(title)
     if(!val || !title){
       message.error('请输入标题和文章内容！')
       return
@@ -74,7 +73,6 @@ const Blog: FC<BlogPropsType> = ({ dispatch, location, blogModel }) => {
       message.error(res.msg)
     }
   }
-  console.log(blogModel.draftArticle)
   return (<Fragment>
     <div className="blogTitBox">
       <Input onInput={(e) => setTitle(e.target.value)} value={title} className="blogTit" placeholder="请输入文章标题" />

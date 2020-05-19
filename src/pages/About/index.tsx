@@ -9,7 +9,6 @@ interface Pageprops extends ConnectProps{
 }
 const About: React.FC<Pageprops> = ({ about, articleDetail, dispatch }) => {
   const { name } = about
-  console.log(articleDetail)
   return (
     <div className="aboutPage">
       <div className="aboutPageBck"></div>

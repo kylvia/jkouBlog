@@ -50,7 +50,6 @@ const HomeModel: HomeModelType = {
   },
   effects: {
     *getUserMess({ payload }, { call, put }){
-      console.log(payload)
       const res = yield call(getUserMess, {...payload})
       if(res.status === 200){
         localStorage.setItem('userInfo', JSON.stringify(res.data))

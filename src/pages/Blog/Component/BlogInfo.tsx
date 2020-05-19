@@ -27,12 +27,6 @@ const BlogInfo: FC<BlogInfoType> = ({ visible, hideVisible, sendData, defaultVal
   const handleCancel = () => {
     hideVisible()
   }
-  const onFinish = (value) => {
-    console.log('onFinish-->',value)
-  }
-  const onFinishFailed = (value) => {
-    console.log('onFinishFailed-->',value)
-  }
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
@@ -60,10 +54,9 @@ const BlogInfo: FC<BlogInfoType> = ({ visible, hideVisible, sendData, defaultVal
     okText="确认"
     cancelText="取消"
   >
-    <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed} initialValues={{ message: 0, ...defaultVal }}>
+    <Form form={form} initialValues={{ message: 0, ...defaultVal }}>
       <Form.List name="tagValue" label="文章标签">
         {(fields, { add, remove }) => {
-          console.log('fields-->', fields)
           return (
             <div>
               {fields.map((field, index) => (

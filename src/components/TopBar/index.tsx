@@ -7,7 +7,7 @@ import { QuillPenIcon, ManagementIcon } from '@/components/Icon';
 import { HomeOutlined, BarsOutlined, SmileOutlined } from '@ant-design/icons';
 import head from '@/images/head.jpeg';
 import wx from '@/images/wx.jpg';
-import qq from '@/images/qq.jpg';
+import qq from "@/images/qq.jpg";
 
 const menus = [
   {path: '/home', name: '首页', icon: <HomeOutlined className="menuIcon" />},
@@ -16,11 +16,15 @@ const menus = [
 ]
 const TopBar:FC = () => {
   const [visible, setVisible] = useState(false)
-  const [userInfo, setUserInfo] = useState(false)
+  const [userInfo, setUserInfo] = useState<Partial<{
+    username: string
+    intro: string
+    email: string
+  }>>({})
 
   useEffect(() => {
-    console.log(123)
-    setUserInfo(localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : '')
+    let readLS:string|null = localStorage.getItem('userInfo');
+    setUserInfo(readLS ? JSON.parse(readLS) : {})
   }, [localStorage.getItem('userInfo')])
   const showDrawer = () => {
     setVisible(true)
@@ -46,7 +50,7 @@ const TopBar:FC = () => {
           <div className="blogInfo">
             <div className="head"><img src={head} alt=""/></div>
             <p className="username">{userInfo.username || ''}</p>
-            <p><pre>{userInfo.intro || ''}</pre></p>
+            <pre className="intro">{userInfo.intro || ''}</pre>
             <p></p>
           </div>
           {

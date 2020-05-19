@@ -29,7 +29,6 @@ const PersonalPage: FC<propsType> = ({personalPageModel: {userMess}, dispatch}) 
     wrapperCol: { offset: 4, span: 8 },
   };
   const onFinish = async (e) => {
-    console.log(e)
     const res = await dispatch({
       type: 'personalPageModel/insUserMess',
       payload: e
@@ -40,7 +39,6 @@ const PersonalPage: FC<propsType> = ({personalPageModel: {userMess}, dispatch}) 
       // form.setFieldsValue(res.data)
     }
   }
-  console.log(userMess)
   return (<Card title="个人资料">
     <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} initialValues={{ ...userMess }}>
       <Form.Item name="username" label="姓名" rules={[{ required: true, message: '请输入姓名!' }]}>

@@ -76,7 +76,6 @@ const sysBlog: sysBlogType = {
       }
     },
     *delBlog({ payload }, { call }){
-      console.log(payload)
       return yield call(delBlog, { ...payload })
     }
   },

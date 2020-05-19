@@ -31,7 +31,6 @@ interface LoginType {
 
 const Login: FC<propsType> = ({ login, loading, dispatch }) => {
   const onFinish = async (values: LoginType) => {
-    console.log('Success:', values);
     const res = await dispatch({
       type: 'login/loginUser',
       payload: values

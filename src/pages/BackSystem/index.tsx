@@ -10,7 +10,6 @@ const BackSystem: FC = () => {
 
   const [collapsed, setCollapsed] = useState(false)
   const onCollapse = () => {
-    console.log(collapsed);
     setCollapsed(!collapsed);
   };
   return (<div>

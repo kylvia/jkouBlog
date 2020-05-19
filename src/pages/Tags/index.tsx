@@ -44,7 +44,6 @@ const Tags: FC<pageTagsProps> = ({tag, location, loading, dispatch}) => {
     })
   }
   const { tagList, articleList} = tag
-  console.log(loading)
   return (<div className="tagsPage">
     <div className="topSection">
       {tagList && tagList.map((i, index) => {

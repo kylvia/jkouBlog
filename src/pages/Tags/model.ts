@@ -61,7 +61,6 @@ const Tags: TagsType = {
       }
     },
     saveList(state, { payload }){
-      console.log(payload)
       return {
         ...state,
         articleList: payload
