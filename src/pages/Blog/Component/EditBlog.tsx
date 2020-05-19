@@ -35,7 +35,7 @@ const EditBlog: FC<{
   }
   const handleUploadImgOk = () => {
     setUploadImgVisible(false)
-    setTextValue(textValue + `![/api/${imageUrl}](/api/${imageUrl})`)
+    setTextValue(textValue + `![${imageUrl}](${imageUrl})`)
   }
   const handleUploadImgCancel = () => {
     setUploadImgVisible(false)
@@ -68,7 +68,7 @@ const EditBlog: FC<{
         fileList = fileList.map(i => {
           if (i.response) {
             i.url = i.response.url;
-            setImageUrl(i.response.url)
+            setImageUrl(`/api/${i.response.url}`)
           }
           return {
             uid: i.uid,
