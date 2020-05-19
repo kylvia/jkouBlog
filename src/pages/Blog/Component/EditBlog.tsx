@@ -41,7 +41,7 @@ const EditBlog: FC<{
     setUploadImgVisible(false)
   }
   const handleUploadImgChange = ({ file, fileList }: {file: {
-      status: 'uploading' | 'done' | 'removed',
+      status: 'uploading' | 'done' | 'removed' | 'error',
       response?: {
         success: number,
         url: string
@@ -59,6 +59,10 @@ const EditBlog: FC<{
       setImgLoading(true)
     }
     if (file.status === 'removed') {
+      setImgLoading(false)
+      setImageUrl('')
+    }
+    if (file.status === 'error') {
       setImgLoading(false)
       setImageUrl('')
     }
