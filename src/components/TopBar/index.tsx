@@ -57,21 +57,21 @@ const TopBar:FC = () => {
             menus.map(item => <p key={item.path} className="drawerRow"><a className="drawerLink" onClick={() => toLink(item.path)}>{item.icon}{item.name}</a></p>)
           }
           <div className="blogInfo blogInfo1">
-            <p><MailOutlined className="icon" />{userInfo.email || ''}</p>
+            <p><MailOutlined className="icon" style={{color: "#C74245"}} />{userInfo.email || ''}</p>
             <p>
-              <a href="https://github.com/kylvia" target="_blank"><GithubOutlined className="icon" /></a>
+              <a href="https://github.com/kylvia" target="_blank"><GithubOutlined style={{color: "#78CC72"}} className="icon" /></a>
               <Popover placement="bottom" content={<img className="qrcode" src={wx} alt=""/>}>
-                <WechatOutlined className="icon" />
+                <WechatOutlined style={{color: "#D8BA53"}} className="icon" />
               </Popover>
               <Popover placement="bottom" content={<img className="qrcode" src={qq} alt=""/>}>
-                <QqOutlined className="icon" />
+                <QqOutlined style={{color: "#CD72A4"}} className="icon" />
               </Popover>
             </p>
           </div>
         </Drawer>
       </div>
     </div>
-    <div className="cTitle"><Link className="goHome" to="/">阿娇</Link></div>
+    <div className="cTitle"><Link className="goHome" to="/">Joynce</Link></div>
     {localStorage.getItem('isLogin') && <div className="rTool">
       <div className="toolBarItem"><QuillPenIcon className="icon" /><Link className="toolBarItemLink" to="/blog">写博客</Link></div>
       <div className="toolBarItem"><ManagementIcon className="icon" /><Link className="toolBarItemLink" to="/backSystem">管理系统</Link></div>

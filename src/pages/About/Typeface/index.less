@@ -1,0 +1,66 @@
+@keyframes typing10 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 10ch;
+  }
+}
+@keyframes typing8 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 8ch;
+  }
+}
+@keyframes typing4 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 4ch;
+  }
+}
+@keyframes typing3 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 3ch;
+  }
+}
+@keyframes typing5 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 5ch;
+  }
+}
+@keyframes typing6 {
+  0%,100%, 98% {
+    width: 0;
+  }
+  40%,60% {
+    width: 6ch;
+  }
+}
+@keyframes caret {
+  45%, 55% { border-color: transparent; }
+  40%, 50%, 60% { border-color: #000; }
+}
+.typeface{
+  width: 0;
+  animation: typing 6s steps(15) infinite,caret 1s steps(1) infinite;
+  white-space: nowrap;
+  overflow:hidden;
+  border-right: .05em solid;
+  color: #5BB5E6;
+  font-size: 26px;
+  font-family: Consolas, Monaco, monospace;//注意这儿，要设置字体为等宽字体,ch才会充分发挥效果
+}
+
+.typeface{
+
+}

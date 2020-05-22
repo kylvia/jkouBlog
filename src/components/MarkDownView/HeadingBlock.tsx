@@ -13,9 +13,9 @@ const HeadingBlock: FC<HeadingBlockType> = ({level, children}) => {
         <Heading level={`h${level}`} id={nodeValue}>
           <span className="title">{children}</span>
           <a href={`#${nodeValue}`} className="link">
-            #
+          #
           </a>
-        </Heading>
+      </Heading>
       );
     } else {
       return <>{children}</>;
